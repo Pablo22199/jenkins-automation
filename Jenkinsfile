@@ -2,15 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
+        stage('Clone') {
             steps {
-                echo '✅ Cloning the repository...'
+                echo 'Cloning the repo...'
             }
         }
-
-        stage('Run Script') {
+        stage('Build') {
             steps {
-                sh 'python3 backup_tool.py test.txt "Hello from Jenkins"'
+                echo 'Building the project...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
             }
         }
     }
